@@ -1,0 +1,36 @@
+1 Improve your scripts
+
+- Read the Help!
+- Loops - Optimise
+- Use the correct types
+- Speed
+    - Get-View/ExtensionData
+    - Parallelism
+
+2 The API(s)
+
+- remove a vNIC
+
+- A short dive into the vSphere API(s)
+    - SOAP
+        - Reference
+        - Framework included in PowerCLI
+    - REST
+        - Reference
+        - PS native methods
+        - Invoke-WebRequest vs Invoke-RestMethod
+
+3 Sharing
+
+- What to consider?
+    - source control
+    - testing
+    - portable/installation
+    - handle all cases
+        - prerequisites
+            - PS version
+            - Modules
+        - parameter validation
+        - error handling
+        - ... many more
+    - issues/feedback
