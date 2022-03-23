@@ -1,6 +1,20 @@
-$vmName = 'PhotonV3Rev3'
-#$vmName = 'PhotonV4Rev2'
+#$vmName = 'PhotonV3Rev3'
+$vmName = 'PhotonV4Rev2'
 $user = 'root'
+
+# Convert Template to VM and start
+
+Get-Template -Name $vmName |
+Set-Template -ToVM -Confirm:$false |
+Start-VM -VM $vmName | Out-Null
+
+# Wait till VMware Tools are ready to accept commands
+
+While(-not (Get-VM -Name $vmName).ExtensionData.Guest.GuestOperationsReady){
+  Start-Sleep -Seconds 5
+}
+
+# Get credentials
 
 $vm = Get-VM -Name $vmName
 $viCred = Get-VICredentialStoreItem -Host $vmName -User $user
@@ -33,13 +47,13 @@ If($result.ScriptOutput -match 'UNSET'){
   $sInvoke.ScriptText = $code1
   $result = Invoke-VMScript @sInvoke
 
-  # If all is well, convert to Template
+  # If all is well, convert back to Template
 
   if ($result.ScriptOutput -match '\[deployPkg\] enable-custom-scripts = true'){
     Shutdown-VMGuest -VM $vm -Confirm:$false
     while((Get-VM -Name $vmName).PowerState -ne 'PoweredOff'){
       Start-Sleep -Seconds 5
     }
-    Set-VM -VM $vm -ToTemplate -Confirm:$false
+    Set-VM -VM $vm -ToTemplate -Confirm:$false | Out-Null
   }
 }
