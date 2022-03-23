@@ -1,3 +1,7 @@
+0 Prep
+- Fresh Photon 4Rev2 template
+- OSCustomizationSpec without scripts
+
 1 Improve your scripts
 
 - Read the Help!
