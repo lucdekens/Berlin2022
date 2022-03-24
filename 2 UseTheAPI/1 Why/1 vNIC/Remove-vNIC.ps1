@@ -1,1 +1,1 @@
-Get-VM -Name MyVM | Get-NetworkAdapter | Remove-NetworkAdapter -Confirm:$false
+Get-VM -Name DC1 | Get-NetworkAdapter | Remove-NetworkAdapter -Confirm:$false

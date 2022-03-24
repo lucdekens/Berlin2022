@@ -1,0 +1,1 @@
+Some random picks of ways to improve the quality and legibility of your code.

@@ -1,3 +1,6 @@
+# Switch to 1 Get-Stat call
+# Errors for powered off VMs
+
 $vms = Get-Cluster | Get-VM
 
 $sStat = @{

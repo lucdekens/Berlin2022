@@ -1,3 +1,6 @@
+# A short overview of the different methods that can be used to call a REST API from PS
+
+
 #region Sample call
 Start-Process -FilePath 'https://developer.vmware.com/apis/vsphere-automation/latest/vcenter/system_config/deployment_type/'
 #endregion
